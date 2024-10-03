@@ -17,6 +17,6 @@ mysql -u root -p
 # Remember to change 'yourPassword' below to be a unique password
 CREATE USER 'dezer'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
 CREATE DATABASE dezerx;
-GRANT ALL PRIVILEGES ON dezer.* TO 'dezerx'@'127.0.0.1' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON dezerx.* TO 'dezerx'@'127.0.0.1' WITH GRANT OPTION;
 exit
 ```
