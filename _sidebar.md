@@ -16,5 +16,5 @@
     * [Setting up Stripe](latest/payments/stripe.md)
     * [Configuring Subscriptions](latest/config/renewal.md)
     * [AFK ](latest/config/afk.md)
-
+    * [Pterodactyl ](latest/config/pterodactyl.md)
         
