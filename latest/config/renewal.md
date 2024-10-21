@@ -19,7 +19,7 @@
 3. Add the following line to the crontab file:
 
     ```bash
-    * * * * * /var/www/DezerX/script.sh >> /dev/null 2>&1
+0 0 * * * /var/www/DezerX/script.sh >> /dev/null 2>&1
     ```
 
 4. Save the file (Ctrl + S) and exit the editor.
