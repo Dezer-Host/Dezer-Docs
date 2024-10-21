@@ -16,5 +16,6 @@
     * [Setting up Stripe](latest/payments/stripe.md)
     * [Configuring Renewals](latest/config/renewal.md)
     * [Billing ](latest/config/billing.md)
+    * [AFK ](latest/config/afk.md)
 
         
