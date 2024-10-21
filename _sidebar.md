@@ -14,8 +14,7 @@
     * [Discord Registration](latest/discord/oauth.md)
     * [Setting up PayPal](latest/payments/paypal.md)
     * [Setting up Stripe](latest/payments/stripe.md)
-    * [Configuring Renewals](latest/config/renewal.md)
-    * [Billing ](latest/config/billing.md)
+    * [Configuring Subscriptions](latest/config/renewal.md)
     * [AFK ](latest/config/afk.md)
 
         
