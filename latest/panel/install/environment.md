@@ -26,15 +26,14 @@ DB_PASSWORD=your_password_here
 
 #### Integration Settings
 ```
+APP_URL=https://client.domainhere.com
+LICENSE_KEY=yourlicense key
+
 # Discord Webhook for notifications
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_url
 
 # ProxyCheck API for VPN detection
 PROXYCHECK_API_KEY=your_proxycheck_api_key
-
-# Cloudflare Turnstile for bot protection
-TURNSTILE_SITE_KEY=your_turnstile_site_key
-TURNSTILE_SECRET_KEY=your_turnstile_secret_key
 
 # Discord OAuth for authentication
 DISCORD_CLIENT_ID=your_discord_client_id
@@ -48,6 +47,18 @@ PTERODACTYL_CLIENT_KEY=your_pterodactyl_client_key
 
 # PayPal integration
 PAYPAL_SELLER_EMAIL=your_paypal_email@example.com
+
+# AFK Configuration
+VITE_WEBSOCKET_URL=wss://afk.example.com/
+
+# Pusher Configuration
+PUSHER_APP_ID=XXXXX
+PUSHER_APP_CLUSTER=XX
+PUSHER_APP_KEY=XXXXXXXXXXXXXXXXX
+PUSHER_APP_SECRET=XXXXXXXXXXXXXXXXXXX
+VITE_PUSHER_APP_CLUSTER=XX
+VITE_PUSHER_APP_KEY=XXXXXXXXXXXX
+
 ```
 
 Replace all placeholder values (like `your_password_here`, `your_webhook_url`, etc.) with your actual credentials and settings.
@@ -61,6 +72,15 @@ After this, we'll need to install Composer dependencies - which will allow the P
 
 ```bash
 composer install --no-dev --optimize-autoloader
+```
+
+# Then
+```bash
+npm install
+```
+After that,
+```bash 
+npm run build
 ```
 
 Finally, we'll generate a random token which will be the encryption/app key for our project.
