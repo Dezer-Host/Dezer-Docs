@@ -1,72 +1,31 @@
 # Enabling Renewals for DezerX: Simplified Guide
 
-Enabling renewals in DezerX is straightforward. Follow these easy steps to set up automatic renewals for your system.
+## To enable monthly renewals:
 
-## Steps to Enable Renewals
+1. Navigate to the DezerX directory, then run this command:
 
-### 1. Navigate to the DezerX Directory
+    ```bash
+    chmod +x ./script.sh
+    ```
 
-Open your terminal and change to the DezerX directory:
+2. Open the crontab editor by running:
 
-```bash
-cd /var/www/DezerX
-```
+    ```bash
+    crontab -e
+    ```
 
-### 2. Create the Renewal Script
+    - If prompted to choose an editor, select option `1`.
 
-Use a text editor to create and edit the renewal script:
+3. Add the following line to the crontab file:
 
-```bash
-nano renewal.sh
-```
+    ```bash
+    * * * * * /var/www/DezerX/script.sh >> /dev/null 2>&1
+    ```
 
-Add the following script to `renewal.sh`:
+4. Save the file (Ctrl + S) and exit the editor.
 
-```bash
-#!/bin/bash
-for i in {1..60}
-do
-    /usr/bin/php /var/www/DezerX/artisan servers:suspend-expired
-    sleep 1
-done
-```
+---
 
-Save and exit the text editor (for nano, press CTRL + X, then Y, and Enter).
+🎉 **Congrats!** Renewals have been configured and should be functioning normally.
 
-### 3. Make the Script Executable
-
-Change the permissions of the `renewal.sh` script to make it executable:
-
-```bash
-chmod +x renewal.sh
-```
-
-### 4. Schedule the Script with Cron
-
-Open the crontab file for editing:
-
-```bash
-crontab -e
-```
-
-Add the following line to run the renewal script every minute:
-
-```bash
-* * * * * /var/www/DezerX/renewal.sh
-```
-
-Save and exit the crontab editor.
-
-## Disabling Renewals
-
-To disable the renewals:
-1. Go to the admin area of your application
-2. Set the duration to 0
-
-## Notes
-
-- The renewal script runs every second, checking for expired servers to suspend.
-
-?>
-Congrats! Renewals have been configured and should be functioning normally.
 If you encounter any issues, please let us know on our [Discord](https://discord.gg/UN4VVc2hWJ).
