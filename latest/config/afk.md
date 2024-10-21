@@ -68,5 +68,3 @@ To ensure the WebSocket server runs continuously, set up a cron job:
 
 If you encounter any issues, please let us know on our [Discord](https://discord.gg/UN4VVc2hWJ).
 ```
-
-This Markdown version is clean and well-formatted for readability.
