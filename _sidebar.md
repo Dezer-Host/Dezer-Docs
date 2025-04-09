@@ -1,4 +1,4 @@
-* **DezerX V3**
+* **DezerX V5**
     * `Installation`
         * [Install Dependencies](latest/panel/install/dependencies.md)
         * [Download Files](latest/panel/install/download.md)
