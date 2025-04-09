@@ -45,8 +45,10 @@ PTERODACTYL_API_URL=https://panel.your-domain.com
 PTERODACTYL_API_KEY=your_pterodactyl_api_key
 PTERODACTYL_CLIENT_KEY=your_pterodactyl_client_key
 
-# PayPal integration
-PAYPAL_SELLER_EMAIL=your_paypal_email@example.com
+# PAYPAL Configuration
+PAYPAL_SANDBOX=true # Or false for live
+PAYPAL_CLIENT=XXXXX
+PAYPAL_SECRET=XXXXX
 
 # AFK Configuration
 VITE_WEBSOCKET_URL=wss://afk.example.com/
