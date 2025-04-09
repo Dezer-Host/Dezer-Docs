@@ -18,7 +18,8 @@
 
     ```bash
     allowed_origins:
-    - "*"
+    - "https://dash.example.com"
+    - "http://dash.example.com"
     ```
 
 ## Step 2: Restart Wings
