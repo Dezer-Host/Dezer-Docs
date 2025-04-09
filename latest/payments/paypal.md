@@ -1,16 +1,38 @@
-# PayPal Integration with DezerX: Simplified!
+# 💳 **PayPal Integration with DezerX: Simplified!**
 
 Integrating PayPal with DezerX is a breeze! Just follow these easy steps:
 
-1. **Locate the `.env` File**: 
-   Navigate to your DezerX directory and find the `.env` configuration file.
+---
 
-2. **Add Your PayPal Email**: 
-   Open the `.env` file and add your PayPal email address as shown below:
+## Step 1: Locate the `.env` File
 
-   ```bash
-   PAYPAL_EMAIL=your_paypal_email@example.com
+Navigate to your DezerX directory and find the `.env` configuration file.
 
-?>
-Congrats! Paypal have been configured and should be functioning normally.
-If you encounter any issues, please let us know on our [Discord](https://discord.gg/UN4VVc2hWJ).
+---
+
+## Step 2: Add PayPal Configuration
+
+Open the `.env` file and add the following PayPal configuration. Replace the placeholders with your actual PayPal credentials.
+
+```bash
+# PAYPAL Configuration
+PAYPAL_SANDBOX=true  # Set to 'false' for live environment
+PAYPAL_CLIENT=your_paypal_client_id
+PAYPAL_SECRET=your_paypal_secret_key
+```
+
+- **`PAYPAL_SANDBOX`**: Set this to `true` if you're using the sandbox (test) environment for PayPal. Set it to `false` when you're ready for live transactions.
+- **`PAYPAL_CLIENT`**: Replace this with your PayPal **Client ID**.
+- **`PAYPAL_SECRET`**: Replace this with your PayPal **Secret Key**.
+
+---
+
+## Step 3: Save the File
+
+Once you've added the correct details, save the `.env` file.
+
+---
+
+🎉 **Congrats!** PayPal has been configured and should now be functioning normally.
+
+If you encounter any issues, feel free to reach out to us on our [Discord](https://discord.gg/UN4VVc2hWJ).
