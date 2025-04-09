@@ -10,13 +10,13 @@
 
     - If prompted to choose an editor, select option `1`.
 
-3. Add the following line to the crontab file:
+2. Add the following line to the crontab file:
 
     ```bash
 0 */2 * * * cd /path/to/dezerx && php artisan monthly:start
     ```
 
-4. Save the file (Ctrl + S) and exit the editor.
+3. Save the file (Ctrl + S) and exit the editor.
 
 ---
 
