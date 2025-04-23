@@ -1,17 +1,29 @@
-# DezerX Subscriptions and cron jobs
+### DezerX Subscriptions and Cron Jobs Setup Guide
+
+Here's your complete guide for setting up cron jobs and queue workers for your Laravel application, with an important notice about directory paths:
+
+## Important Notice ⚠️
+
+**Before proceeding, verify your correct application directory path!**
+
+- Some systems may use `/var/www/DezerX` (capital D, capital X)
+- Others may use `/var/www/dezerx` (all lowercase)
+
+
+Please check your actual directory structure and replace all instances of the path in the commands below with your correct path.
 
 ## 1. Setting Up Cron Job
 
 First, open your crontab file for editing:
 
-```bash
+```shellscript
 crontab -e
 ```
 
 Add the following line to run Laravel's scheduler every minute:
 
-```bash
-* * * * * cd /var/www/DezerX && php artisan schedule:run >> /dev/null 2>&1
+```shellscript
+* * * * * cd /path/to/your/DezerX && php artisan schedule:run >> /dev/null 2>&1
 ```
 
 Save and exit the editor.
@@ -20,13 +32,13 @@ Save and exit the editor.
 
 Create a systemd service file:
 
-```bash
+```shellscript
 sudo nano /etc/systemd/system/dezerx.service
 ```
 
 Add the following content:
 
-```
+```plaintext
 [Unit]
 Description=Laravel Queue Worker for DezerX
 After=network.target
@@ -34,8 +46,8 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=/var/www/DezerX
-ExecStart=/usr/bin/php /var/www/DezerX/artisan queue:work --queue=high,medium,default,low --sleep=3 --tries=3 --timeout=300
+WorkingDirectory=/path/to/your/DezerX
+ExecStart=/usr/bin/php /path/to/your/DezerX/artisan queue:work --queue=high,medium,default,low --sleep=3 --tries=3 --timeout=300
 Restart=always
 RestartSec=5
 StartLimitBurst=3
@@ -54,19 +66,19 @@ Save and exit the editor.
 
 Reload systemd to recognize the new service:
 
-```bash
+```shellscript
 sudo systemctl daemon-reload
 ```
 
 Enable the service to start on boot:
 
-```bash
+```shellscript
 sudo systemctl enable dezerx.service
 ```
 
 Start the service:
 
-```bash
+```shellscript
 sudo systemctl start dezerx.service
 ```
 
@@ -74,7 +86,7 @@ sudo systemctl start dezerx.service
 
 Verify that the service is running correctly:
 
-```bash
+```shellscript
 sudo systemctl status dezerx.service
 ```
 
