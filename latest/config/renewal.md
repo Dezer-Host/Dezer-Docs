@@ -1,4 +1,4 @@
-# DezerX Server Setup Guide
+# DezerX Subscriptions and cron jobs
 
 ## 1. Setting Up Cron Job
 
