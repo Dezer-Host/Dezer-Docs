@@ -1,30 +1,81 @@
-# 🚀 **Enabling Renewals for DezerX: Simplified Guide**
+# DezerX Server Setup Guide
 
-## To enable monthly renewals:
+## 1. Setting Up Cron Job
 
-1. **Open the crontab editor** by running the following command:
+First, open your crontab file for editing:
 
-    ```bash
-    crontab -e
-    ```
+```bash
+crontab -e
+```
 
-    - If you're prompted to choose an editor, select option `1` (typically `nano` or `vi`).
-    - If you're unfamiliar with editors, `nano` is recommended for its simplicity.
+Add the following line to run Laravel's scheduler every minute:
 
-2. **Add the following line** to the crontab file to schedule the renewal process every 2 hours:
+```bash
+* * * * * cd /var/www/DezerX && php artisan schedule:run >> /dev/null 2>&1
+```
 
-    ```bash
-    0 */2 * * * cd /path/to/dezerx && php artisan monthly:start
-    ```
+Save and exit the editor.
 
-    - Make sure to replace `/path/to/dezerx` with the actual path to your DezerX project directory.
+## 2. Creating a Systemd Service for Queue Worker
 
-3. **Save and exit the crontab editor**:
-    - In `nano`, press `Ctrl + O` to save, then `Ctrl + X` to exit.
-    - In `vi`/`vim`, type `:wq` and press `Enter` to save and exit.
+Create a systemd service file:
 
----
+```bash
+sudo nano /etc/systemd/system/dezerx.service
+```
 
-🎉 **Congratulations!** Renewals have been successfully configured and should now be running every 2 hours. You’re all set!
+Add the following content:
 
-If you encounter any issues, feel free to reach out to us on our [Discord](https://discord.gg/UN4VVc2hWJ).
+```
+[Unit]
+Description=Laravel Queue Worker for DezerX
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/DezerX
+ExecStart=/usr/bin/php /var/www/DezerX/artisan queue:work --queue=high,medium,default,low --sleep=3 --tries=3 --timeout=300
+Restart=always
+RestartSec=5
+StartLimitBurst=3
+StartLimitIntervalSec=60
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dezerx-worker
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Save and exit the editor.
+
+## 3. Enable and Start the Service
+
+Reload systemd to recognize the new service:
+
+```bash
+sudo systemctl daemon-reload
+```
+
+Enable the service to start on boot:
+
+```bash
+sudo systemctl enable dezerx.service
+```
+
+Start the service:
+
+```bash
+sudo systemctl start dezerx.service
+```
+
+## 4. Check Service Status
+
+Verify that the service is running correctly:
+
+```bash
+sudo systemctl status dezerx.service
+```
+
+This should show you the status of the service, including whether it's active (running) and any recent log entries.
