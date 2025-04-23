@@ -47,7 +47,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=/path/to/your/DezerX
-ExecStart=/usr/bin/php /path/to/your/DezerX/artisan queue:work --queue=high,medium,default,low --sleep=3 --tries=3 --timeout=300
+ExecStart=/usr/bin/php /path/to/your/DezerX/artisan queue:work --queue=high,medium,default,low --sleep=3 --tries=3 
 Restart=always
 RestartSec=5
 StartLimitBurst=3
