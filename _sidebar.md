@@ -1,5 +1,6 @@
 - **DezerX V7**
   - `Installation`
+    - [Install Script](latest/panel/install/install_script.md)
     - [Install Dependencies](latest/panel/install/dependencies.md)
     - [Download Files](latest/panel/install/download.md)
     - [Database Setup](latest/panel/install/database.md)
@@ -9,6 +10,7 @@
     - [NGINX with SSL](latest/panel/webservers/nginx-ssl.md)
     - [Apache with SSL](latest/panel/webservers/apache-ssl.md)
   - `Updating`
+    - [Automatic Update](latest/panel/updating/automatic.md)
     - [Manual Update](latest/panel/updating/manual.md)
 - **Additional Configuration**
   - [Discord Registration](latest/discord/oauth.md)
