@@ -1,11 +1,12 @@
 # Setup SSL with Certbot
 
-***
+---
 
 ### Download Certbot package
 
 We'll start by downloading the `certbot` package which can be used to create SSL certificates
 for your website.
+
 ```bash
 # If using NGINX run the following:
 apt install -y certbot python3-certbot-nginx
@@ -14,7 +15,7 @@ apt install -y certbot python3-certbot-nginx
 apt install -y certbot python3-certbot-apache
 ```
 
-***
+---
 
 ### Creating a certificate
 

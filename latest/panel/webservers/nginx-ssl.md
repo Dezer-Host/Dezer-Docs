@@ -1,17 +1,18 @@
 # Nginx with SSL Configuration
 
-***
+---
 
 ### Remove default configuration
 
 Firstly, let's remove the default NGINX configuration from your server.
+
 ```bash
 rm /etc/nginx/sites-available/default; rm /etc/nginx/sites-enabled/default
 ```
 
 After we've done that, we can make our configuration for DezerX to run.
 
-***
+---
 
 ### Create configuration file
 
@@ -87,21 +88,24 @@ server {
 }
 ```
 
-***
+---
 
 ### Enabling Configuration
 
 Firstly, let's link the file we've made to the directory which NGINX uses for configs.
+
 ```bash
 ln -s /etc/nginx/sites-available/dezerx.conf /etc/nginx/sites-enabled/dezerx.conf
 ```
 
 Then, we can test our nginx configuration to make sure it's working and valid:
+
 ```bash
 nginx -t
 ```
 
 Finally, we can restart the NGINX server process to make our Panel available on the domain.
+
 ```bash
 systemctl restart nginx
 ```

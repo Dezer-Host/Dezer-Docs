@@ -1,6 +1,6 @@
 # Environment Setup
 
-***
+---
 
 ### Create Configuration File
 
@@ -15,6 +15,7 @@ cp .env.example .env
 2. Open the `.env` file in your preferred text editor and update the following sections:
 
 #### Database Configuration
+
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -25,6 +26,7 @@ DB_PASSWORD=your_password_here
 ```
 
 #### Integration Settings
+
 ```
 APP_URL=https://client.domainhere.com
 LICENSE_KEY=yourlicense key
@@ -66,9 +68,11 @@ VITE_PUSHER_APP_KEY=XXXXXXXXXXXX
 Replace all placeholder values (like `your_password_here`, `your_webhook_url`, etc.) with your actual credentials and settings.
 
 Make sure to keep your `.env` file secure and never share it publicly, as it contains sensitive information.
-***
+
+---
 
 ### Install Composer packages
+
 After this, we'll need to install Composer dependencies - which will allow the PHP code in our project
 (such as the backend and admin-side) to run properly.
 
@@ -77,11 +81,14 @@ composer install --no-dev --optimize-autoloader
 ```
 
 # Then
+
 ```bash
 npm install
 ```
+
 After that,
-```bash 
+
+```bash
 npm run build
 ```
 
@@ -95,19 +102,21 @@ If you lose this key, all data is impossible to recover.
 php artisan key:generate --force
 ```
 
-
 ### Database Migration
+
 Now we need to set up all the base data for the Panel in the database you created earlier. The command below may take some time to run depending on your machine. Please **DO NOT exit the process** until it is completed!
 
 ```bash
 php artisan migrate --seed --force
 ```
 
-***
+---
 
 ### Assign Permissions
+
 In order for the webserver you're using to access the Panel files, we'll need to assign it permissions
 with the `chown` command. Here's how to do this for all types of webservers:
+
 ```bash
 # If using NGINX or Apache (not on CentOS):
 chown -R www-data:www-data /var/www/dezerx/*
