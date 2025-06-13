@@ -4,27 +4,27 @@
 
 1. **Open the Pterodactyl configuration file** by running the following command:
 
-    ```bash
-    sudo nano /etc/pterodactyl/config.yml
-    ```
+   ```bash
+   sudo nano /etc/pterodactyl/config.yml
+   ```
 
-    - If you're using a different text editor (e.g., `vi` or `vim`), replace `nano` with your preferred editor.
+   - If you're using a different text editor (e.g., `vi` or `vim`), replace `nano` with your preferred editor.
 
 2. **Scroll down** until you find the following line in the configuration file:
 
-    ```bash
-    allowed_origins: []
-    ```
+   ```bash
+   allowed_origins: []
+   ```
 
 3. **Modify it** to include the allowed origins for your DezerX dashboard:
 
-    ```bash
-    allowed_origins:
-    - https://dash.example.com
-    - http://dash.example.com
-    ```
+   ```bash
+   allowed_origins:
+   - https://dash.example.com
+   - http://dash.example.com
+   ```
 
-    - Replace `https://dash.example.com` and `http://dash.example.com` with your actual dashboard URLs.
+   - Replace `https://dash.example.com` and `http://dash.example.com` with your actual dashboard URLs.
 
 ---
 

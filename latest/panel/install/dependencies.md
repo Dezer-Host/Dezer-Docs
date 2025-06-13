@@ -1,4 +1,3 @@
-
 ## Dependencies
 
 ```bash
@@ -21,7 +20,9 @@ apt update
 # Install Dependencies
 apt -y install php8.3 php8.3-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
 ```
+
 ## Installing Composer
+
 Composer is a dependency manager for PHP that allows us to ship everything you'll need code wise to operate the Panel. You'll need composer installed before continuing in this process.
 
 ```bash

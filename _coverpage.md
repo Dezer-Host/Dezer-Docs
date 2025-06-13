@@ -1,4 +1,4 @@
-# DezerX <small>v2.2</small>
+# DezerX <small>V7.9</small>
 
 > The documentation for DezerX.
 

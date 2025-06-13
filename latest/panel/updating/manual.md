@@ -1,6 +1,6 @@
 # Updating DezerX
 
-***
+---
 
 Updating DezerX keeps your system stable, secure and allows
 your users/admins to experience new features quicker. Use
@@ -9,21 +9,20 @@ the following guide below as a reference for updating DezerX.
 ?>
 Take a backup of your installation before continuing.
 
-***
+---
 
 ### Maintenance mode
 
 Start by shutting down the Panel while we perform upgrades.
 
 ```bash
-cd /var/www/dezerx 
+cd /var/www/dezerx
 php artisan down
 ```
 
 ### Download new version
 
 Next, download the update to your local machine and upload it to the folder at /var/www/dezerx. Be sure to overwrite any existing files during this process.
-
 
 ### Update Composer packages
 

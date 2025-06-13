@@ -1,4 +1,3 @@
-
 # Enabling AFK for DezerX: Simplified Guide
 
 ## Step 1: Setup WebSocket URL
@@ -7,9 +6,9 @@ DezerX uses its own WebSocket to connect to AFK using `wss`.
 
 - In the `.env` file, make sure you have set up the `VITE_WEBSOCKET_URL`, which should start with:
 
-    ```bash
-    VITE_WEBSOCKET_URL=wss://afk.example.com
-    ```
+  ```bash
+  VITE_WEBSOCKET_URL=wss://afk.example.com
+  ```
 
 ## Step 2: Create NGINX Configuration
 
@@ -30,7 +29,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/afk.example.com/privkey.pem;
 
     location / {
-        proxy_pass http://localhost:3000;  
+        proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
@@ -56,9 +55,9 @@ To ensure the WebSocket server runs continuously, set up a cron job:
 1. Run `crontab -e`
 2. Add the following line:
 
-    ```bash
-    php /var/www/DezerX/artisan websocket:serve 2>&1
-    ```
+   ```bash
+   php /var/www/DezerX/artisan websocket:serve 2>&1
+   ```
 
 3. Save the file (Ctrl + S) and exit the editor.
 
@@ -67,4 +66,7 @@ To ensure the WebSocket server runs continuously, set up a cron job:
 🎉 **Congrats!** You have fully set up DezerX.
 
 If you encounter any issues, please let us know on our [Discord](https://discord.gg/UN4VVc2hWJ).
+
+```
+
 ```

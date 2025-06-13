@@ -1,11 +1,11 @@
 # Configure Discord for DezerX
 
-***
+---
 
 This guide will show you how to link a Discord auth application to DezerX, which allows
 users to authenticate with DezerX via their Discord account.
 
-***
+---
 
 ### Configure a Discord application
 
@@ -28,9 +28,8 @@ You can do this by clicking the 'Add Redirect' button and adding these two URLs.
 
 ### Add Client ID and Secret to DezerX
 
-Finally, open ur code editor or terminal, go in ``.env`` and change these:
+Finally, open ur code editor or terminal, go in `.env` and change these:
 ![Discord env](../../public/images/discord-env.png)
-
 
 ### Test your Application
 

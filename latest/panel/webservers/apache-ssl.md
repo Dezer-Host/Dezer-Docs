@@ -1,17 +1,18 @@
 # Apache with SSL Configuration
 
-***
+---
 
 ### Disabling default configuration
 
 Firstly, let's remove the default Apache configuration from your server.
+
 ```bash
 a2dissite 000-default.conf
 ```
 
 After we've done that, we can make our configuration for DezerX to run.
 
-***
+---
 
 ### Create configuration file
 
@@ -27,10 +28,10 @@ Make a file called `dezerx.conf` in `/etc/apache2/sites-available` and insert th
 ```apache
 <VirtualHost *:80>
   ServerName <domain>
-  
+
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
-  RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L] 
+  RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -38,7 +39,7 @@ Make a file called `dezerx.conf` in `/etc/apache2/sites-available` and insert th
   DocumentRoot "/var/www/dezerx/public"
 
   AllowEncodedSlashes On
-  
+
   php_value upload_max_filesize 100M
   php_value post_max_size 100M
 
@@ -50,25 +51,28 @@ Make a file called `dezerx.conf` in `/etc/apache2/sites-available` and insert th
   SSLEngine on
   SSLCertificateFile /etc/letsencrypt/live/<domain>/fullchain.pem
   SSLCertificateKeyFile /etc/letsencrypt/live/<domain>/privkey.pem
-</VirtualHost> 
+</VirtualHost>
 ```
 
-***
+---
 
 ### Enabling configuration
 
 Firstly, let's link the file we've made to the directory which Apache uses for configs.
+
 ```bash
 ln -s /etc/apache2/sites-available/dezerx.conf /etc/apache2/sites-enabled/dezerx.conf
 ```
 
 Then, we'll apply the settings Apache needs to host DezerX.
+
 ```bash
 sudo a2enmod rewrite
 sudo a2enmod ssl
 ```
 
 Finally, we'll restart Apache in order to bring DezerX online.
+
 ```bash
 systemctl restart apache2
 ```

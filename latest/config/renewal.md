@@ -9,7 +9,6 @@ Here's your complete guide for setting up cron jobs and queue workers for your L
 - Some systems may use `/var/www/DezerX` (capital D, capital X)
 - Others may use `/var/www/dezerx` (all lowercase)
 
-
 Please check your actual directory structure and replace all instances of the path in the commands below with your correct path.
 
 ## 1. Setting Up Cron Job
@@ -47,7 +46,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=/path/to/your/DezerX
-ExecStart=/usr/bin/php /path/to/your/DezerX/artisan queue:work --queue=critical,high,medium,default,low --sleep=3 --tries=3 
+ExecStart=/usr/bin/php /path/to/your/DezerX/artisan queue:work --queue=critical,high,medium,default,low --sleep=3 --tries=3
 Restart=always
 RestartSec=5
 StartLimitBurst=3
